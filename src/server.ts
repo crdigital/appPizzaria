@@ -4,7 +4,7 @@ import cors from 'cors';
 import { router } from './routes';
 import { handleError } from './middlewares/handleError';
 
-const PORT = 4000;
+const PORT = process.env.port;
 
 const app = express();
 app.use(express.json());
@@ -14,4 +14,4 @@ app.use(router);
 
 app.use( handleError );
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}"`));
+app.listen(process.env.PORT, () => console.log(`Servidor rodando na porta ${PORT}"`));
